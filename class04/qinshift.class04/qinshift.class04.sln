@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35818.85 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "qinshift.class04", "qinshift.class04\qinshift.class04.csproj", "{A917C2E0-592D-402F-A36F-3F3F85D3D8BC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "qinshift.strings", "qinshift.strings\qinshift.strings.csproj", "{4682E5B7-234D-44BC-B1A9-682A055FFA26}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A917C2E0-592D-402F-A36F-3F3F85D3D8BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A917C2E0-592D-402F-A36F-3F3F85D3D8BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A917C2E0-592D-402F-A36F-3F3F85D3D8BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A917C2E0-592D-402F-A36F-3F3F85D3D8BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4682E5B7-234D-44BC-B1A9-682A055FFA26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4682E5B7-234D-44BC-B1A9-682A055FFA26}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4682E5B7-234D-44BC-B1A9-682A055FFA26}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4682E5B7-234D-44BC-B1A9-682A055FFA26}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {855F377B-0BC3-46D7-8F46-DCE0C810784C}
+	EndGlobalSection
+EndGlobal
