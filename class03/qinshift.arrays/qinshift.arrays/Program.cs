@@ -2,6 +2,7 @@
 // array of integers ==> int[]
 // array of strings ==> string[]
 // array of double ==> double[]
+// e.g. array of characters => char[]
 
 int[] numbers = new int[] { 11, 22, 1, 2, 33, -5, 3 };
 //int[] numbers = { 11, 22, 1, 2, 33, -5, 3 };
@@ -28,6 +29,11 @@ Console.WriteLine("Numbers array lenght is" + numbers.Length);
 
 //Array.Sort(numbers);
 //Console.WriteLine(numbers[0]);
+//Console.WriteLine(numbers[6]); // 33
+//for (int i = 0; i < numbers.Length; i++)
+//{
+//    Console.WriteLine(numbers[i]);
+//}
 
 // ===> reversing an array
 
@@ -40,9 +46,11 @@ Console.WriteLine($"The index of 1 is {indexofOne}");
 
 int indexofSeven = Array.IndexOf(numbers, 7);
 Console.WriteLine($"The index of 1 is {indexofSeven}");
+// -1 => when item is not found in the array, the method IndexOf returns '-1' 
 
 
-
+// Arrays have *fixed size*, so we can't directly add elements to them
+// Instead, we use resizing 
 string[] newStudents = new string[3];
 
 newStudents[0] = "Bob";
@@ -55,6 +63,18 @@ Array.Resize(ref newStudents, newStudents.Length + 1);
 newStudents[3] = "Dare";
 
 Console.WriteLine(newStudents[3]);
+
+// With arrays, each holding 2 whole numbers
+int[][] arrayOfArrays = new int[5][]
+{
+    new int[2] {1, 2},
+    new int[2] {3, 4},
+    new int[2] {5, 6},
+    new int[2] {7, 8},
+    new int[2] {9, 12},
+};
+
+Console.WriteLine(arrayOfArrays[1][0]);
 
 
 Console.ReadLine();
