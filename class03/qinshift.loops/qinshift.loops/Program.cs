@@ -81,6 +81,8 @@ while (true)
 };
 
 
+// Example: Get valid number input
+
 bool isValid;
 do
 {
