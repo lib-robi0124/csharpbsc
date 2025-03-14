@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.35818.85 d17.13
+VisualStudioVersion = 17.13.35818.85
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "qinshift.class04", "qinshift.class04\qinshift.class04.csproj", "{A917C2E0-592D-402F-A36F-3F3F85D3D8BC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "qinshift.strings", "qinshift.strings\qinshift.strings.csproj", "{4682E5B7-234D-44BC-B1A9-682A055FFA26}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "hm.class04", "hm.class04\hm.class04.csproj", "{A325EB39-15B5-41AB-A746-4A75A1BD5773}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{4682E5B7-234D-44BC-B1A9-682A055FFA26}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4682E5B7-234D-44BC-B1A9-682A055FFA26}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4682E5B7-234D-44BC-B1A9-682A055FFA26}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A325EB39-15B5-41AB-A746-4A75A1BD5773}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A325EB39-15B5-41AB-A746-4A75A1BD5773}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A325EB39-15B5-41AB-A746-4A75A1BD5773}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A325EB39-15B5-41AB-A746-4A75A1BD5773}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
