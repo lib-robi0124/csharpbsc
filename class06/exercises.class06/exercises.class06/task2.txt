@@ -1,0 +1,102 @@
+using System;
+
+public class User
+{
+    public int ID { get; set; }
+    public string Username { get; set; }
+    public string Password { get; set; }
+    public string[] Message { get; set; }
+
+    public User(int id, string username, string password, string[] message)
+    {
+        ID = id;
+        Username = username;
+        Password = password;
+        Message = message;
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        // Existing array of users
+        User[] users = new User[]
+        {
+            new User(20975, "robertr", "Sara1234", new string[] { "Hello Robert", "How are you?" }),
+            new User(20621, "rtoska", "1234Sara", new string[] { "Hello Toska", "What's up?" }),
+            new User(10275, "rsara", "123456", new string[] { "Hello Sara", "Where are you?" })
+        };
+
+        Console.Write("Enter your Username: ");
+        string username = Console.ReadLine();
+        Console.Write("Enter your Password: ");
+        string password = Console.ReadLine();
+
+        // Check if username and password match
+        User authenticatedUser = null;
+        foreach (var user in users)
+        {
+            if (user.Username == username && user.Password == password)
+            {
+                authenticatedUser = user;
+                break;
+            }
+        }
+
+        if (authenticatedUser != null)
+        {
+            Console.WriteLine($"Welcome {authenticatedUser.Username}. Here are your messages:");
+            foreach (var msg in authenticatedUser.Message)
+            {
+                Console.WriteLine(msg);
+            }
+        }
+        else
+        {
+            Console.WriteLine("Invalid username or password!");
+            return;
+        }
+
+        Console.Write("Enter your ID: ");
+        int userInput;
+        if (!int.TryParse(Console.ReadLine(), out userInput))
+        {
+            Console.WriteLine("Invalid ID format.");
+            return;
+        }
+
+        // Check if ID exists
+        User existingUser = null;
+        foreach (var user in users)
+        {
+            if (user.ID == userInput)
+            {
+                existingUser = user;
+                break;
+            }
+        }
+
+        if (existingUser != null)
+        {
+            Console.WriteLine($"User ID {existingUser.ID} belongs to {existingUser.Username}.");
+        }
+        else
+        {
+            Console.WriteLine("User ID not found. Adding new user...");
+
+            // Since arrays are fixed in size, create a new array with an extra element
+            User[] newUsers = new User[users.Length + 1];
+            for (int i = 0; i < users.Length; i++)
+            {
+                newUsers[i] = users[i];
+            }
+
+            newUsers[users.Length] = new User(userInput, username, password, new string[] { "No messages yet." });
+
+            users = newUsers; // Replace old array with the new one
+
+            Console.WriteLine("New user added successfully!");
+        }
+    }
+}
