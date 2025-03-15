@@ -98,11 +98,22 @@ foreach (var user in users)
         }
         return;
     }
-    else if(user.ID != userInput ) 
-        {
+    else if (user.ID != userInput)
+    {
         Console.WriteLine("User ID not found. Adding new user...");
-        users.Add(new User(userInput, username, password, new string[] { "No messages yet." }));
+        Array.Resize(ref users, users.Length + 1);
+        users[users.Length - 1] = new User(userInput, username, password, new string[] { "No messages yet." });
+        Console.WriteLine("User added successfully.");
+        // Print all users
+        Console.WriteLine("\nList of all users:");
+        for(int i = 0; i < users.Length; i++)
+        {
+            Console.WriteLine($"ID: {users[i].ID}, Username: {users[i].Username}, Password: {users[i].Password}");
+        }
+        
+        return;
     }
+    
     else
     {
         Console.WriteLine("Invalid username or password!");
