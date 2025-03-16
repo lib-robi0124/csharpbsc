@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace exercise3.Models
 {
-  
+
     public class Student
     {
         public string Name { get; set; }

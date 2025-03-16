@@ -14,7 +14,7 @@ while (continueExecute.ToLower() != "n")
             new Student("Zivkica", "Arts Academy", "D4"),
             new Student("Ada", "Business Academy", "E5")
        };
-   
+
 
     Console.WriteLine("Please write a Student name:");
     string studentName = Console.ReadLine();
@@ -37,13 +37,13 @@ while (continueExecute.ToLower() != "n")
             Console.WriteLine($"Students in a list are: {students[i].Name}");
         }
     }
-    
+
     Console.WriteLine("Do you want to continue? Y / N");
     continueExecute = Console.ReadLine();
     Console.Clear();
 }
 
 
-    #endregion
+#endregion
 
-    Console.ReadLine();
+Console.ReadLine();

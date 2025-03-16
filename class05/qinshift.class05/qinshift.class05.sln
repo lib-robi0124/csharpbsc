@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.35818.85 d17.13
+VisualStudioVersion = 17.13.35818.85
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "qinshift.classAndobjects", "qinshift.class05\qinshift.classAndobjects.csproj", "{FF439874-B0C5-443E-9376-08EFF2A81C01}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "exercise2", "exercise2\exercise2.csproj", "{EB363699-536E-4BF5-B947-AA42F4AFA871}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "exercise3", "exercise3\exercise3.csproj", "{0BE4B460-BE8D-4242-BD5F-C741C4D3FCEE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "hm.class05.car", "hm.class05.car\hm.class05.car.csproj", "{BA2D6AED-2576-4C4C-99B6-F54695228953}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{0BE4B460-BE8D-4242-BD5F-C741C4D3FCEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0BE4B460-BE8D-4242-BD5F-C741C4D3FCEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0BE4B460-BE8D-4242-BD5F-C741C4D3FCEE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA2D6AED-2576-4C4C-99B6-F54695228953}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA2D6AED-2576-4C4C-99B6-F54695228953}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA2D6AED-2576-4C4C-99B6-F54695228953}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA2D6AED-2576-4C4C-99B6-F54695228953}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
