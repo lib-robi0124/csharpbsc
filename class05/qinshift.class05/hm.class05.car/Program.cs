@@ -4,7 +4,19 @@ using hm.class05.car.Models;
 
 
 #region hm.class05.car
-
+static int GetValidCarSelection(string prompt)
+{
+    int carIndex;
+    while (true)
+    {
+        Console.Write(prompt);
+        if (int.TryParse(Console.ReadLine(), out carIndex) && carIndex >= 1 && carIndex <= 4)
+        {
+            return carIndex;
+        }
+        Console.WriteLine("Invalid choice. Please enter a number between 1 and 4.");
+    }
+}
 static void RaceCars(Car car1, Car car2)
 {
     int car1Speed = car1.CalculateSpeed();
@@ -30,20 +42,29 @@ Car[] cars = new Car[]
             new Car("Ferrari", 320, drivers[2]),
             new Car("Porsche", 300, drivers[3]),
 };
+string continueExecute = string.Empty;
 
-Console.WriteLine("Please choose two cars to race:");
+while (continueExecute.ToUpper() != "N")
+{
+    Console.WriteLine("Please choose two cars to race:");
 for (int i = 0; i < cars.Length; i++)
 {
     Console.WriteLine($"Choice {i + 1}) {cars[i].Model}");
 }
 
-Console.Write("Enter the number of the first car: ");
-int firstCarIndex = int.Parse(Console.ReadLine()) - 1;
+int firstCarIndex = GetValidCarSelection("Enter the number of the first car: ") - 1;
+int secondCarIndex = GetValidCarSelection("Enter the number of the second car: ") - 1;
 
-Console.Write("Enter the number of the second car: ");
-int secondCarIndex = int.Parse(Console.ReadLine()) - 1;
-
-RaceCars(cars[firstCarIndex], cars[secondCarIndex]);
+    if (firstCarIndex == secondCarIndex)
+    {
+        Console.WriteLine("You have selected the same car. Please select two different cars.");
+        continue;
+    }
+    RaceCars(cars[firstCarIndex], cars[secondCarIndex]);
+    Console.WriteLine("Do you want to continue? Y / N");
+    continueExecute = Console.ReadLine();
+    Console.Clear();
+}
 
 #endregion
 
