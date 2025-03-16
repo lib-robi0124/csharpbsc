@@ -1,4 +1,6 @@
-﻿namespace exercises.task3.Models
+﻿using System.Numerics;
+
+namespace exercises.task3.Models
 {
     public class Customer
     {
@@ -26,18 +28,20 @@
             {
                 if (userwithdraw < Balance)
                 {
-                    Balance -= userwithdraw;
+
+                    Console.WriteLine($"Your new car balance {Balance -= userwithdraw}");
                     return;
                 }
-                Console.WriteLine("You do not have enough money to withdraw");
+                Console.WriteLine($"You do not have enough money to withdraw, please enter lower than your balance {Balance}");
             }
         }
         public void CashDeposit(string deposit)
         {
             if (int.TryParse(deposit, out int userDeposit))
             {
-                Balance += userDeposit;
+                Console.WriteLine($"Your new card balance is {Balance += userDeposit}");
                 return;
             }
         }
+    }
 }

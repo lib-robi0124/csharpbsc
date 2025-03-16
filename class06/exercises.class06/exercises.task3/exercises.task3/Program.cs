@@ -32,7 +32,6 @@ switch (choice)
 {
     case "1":
         bob.CardBalance();
-
         break;
     case "2":
         Console.WriteLine("How much would you like to withdraw?");
@@ -53,3 +52,5 @@ switch (choice)
 
 
 #endregion
+
+Console.ReadLine();
