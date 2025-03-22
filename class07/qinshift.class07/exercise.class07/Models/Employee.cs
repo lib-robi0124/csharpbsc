@@ -1,13 +1,15 @@
-﻿using qinshift.library.Enums;
+﻿
+using qinshift.library.Enums;
 
 namespace exercise.class07.Models
 {
-    public class Employee
+    
+        public class Employee                   //Create a class called Employee with the following properties:
     {
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public RoleEnum Role { get; set; }
-        protected double Salary { get; set; }
+        public string FirstName { get; set; }   //FirstName
+        public string LastName { get; set; }    //LastName
+        public RoleEnum Role { get; set; }       //Role - Enum ( Sales, Manager, Other )
+        protected double Salary { get; set; }   //Salary - protected, double
         public Employee() { }
         public Employee(string firstName, string lastName, RoleEnum role, double salary)
         {
@@ -16,16 +18,15 @@ namespace exercise.class07.Models
             Role = role;
             Salary = salary;
         }
-        public virtual double GetSalary()
+        public virtual double GetSalary()       //GetSalary - returns the salary
         {
             return Salary;
         }
         public void PrintInfo()
         {
-            System.Console.WriteLine($"First Name: {FirstName}");
-            System.Console.WriteLine($"Last Name: {LastName}");
-            System.Console.WriteLine($"Role: {Role}");
-            System.Console.WriteLine($"Salary: {GetSalary()}");
+            //PrintInfo - Prints FirstName, LastName and Salary
+            System.Console.WriteLine($"Employer as role {Role}, is {FirstName} {LastName} and get salary {GetSalary()}");
+           
         }
     }
 }
