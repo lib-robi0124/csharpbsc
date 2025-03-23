@@ -17,9 +17,20 @@ salesEmployee.PrintInfo();
 #endregion
 
 #region Manager
-Manager manager = new Manager("Petar", "Perovski", 5000);
+Manager manager = new Manager("Petar", "Perovski", 5000, "IT Department");
 manager.AddBonus(500);
 manager.PrintInfo();
+
+#endregion
+
+#region Contractor
+Contractor contractor = new Contractor("Jane", "Smith", 40, 50, manager);
+
+contractor.PrintInfo();
+System.Console.WriteLine($"Contractor's responsible department: {contractor.CurrentPosition()} " +
+    $"and responsible Manager is {manager.FirstName} {manager.LastName}");
+System.Console.WriteLine($"Contractor's calculated salary: {contractor.GetSalary()}");
+
 
 #endregion
 
