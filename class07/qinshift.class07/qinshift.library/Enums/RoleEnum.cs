@@ -4,6 +4,7 @@
     {
         Sales,
         Manager,
+        CEO,
         Other
     }
 }
