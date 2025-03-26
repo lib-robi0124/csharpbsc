@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "qinshift.class09", "qinshif
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "qinshift.errorhandle", "qinshift.errorhandle\qinshift.errorhandle.csproj", "{0670FE02-6D13-4D04-B2C2-DE283BB75B28}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "qinshift.exercise1", "qinshift.exercise1\qinshift.exercise1.csproj", "{6BB946E7-2B49-458A-8977-6EC8BF355FD6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{0670FE02-6D13-4D04-B2C2-DE283BB75B28}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0670FE02-6D13-4D04-B2C2-DE283BB75B28}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0670FE02-6D13-4D04-B2C2-DE283BB75B28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6BB946E7-2B49-458A-8977-6EC8BF355FD6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6BB946E7-2B49-458A-8977-6EC8BF355FD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6BB946E7-2B49-458A-8977-6EC8BF355FD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6BB946E7-2B49-458A-8977-6EC8BF355FD6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
