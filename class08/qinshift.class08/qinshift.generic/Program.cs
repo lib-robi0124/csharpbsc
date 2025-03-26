@@ -172,16 +172,59 @@ foreach (var item in words)
 
 
 #region LINQ language INtegrated Queries
+Console.WriteLine("== linq ==");
+static void PrintDogs(List<Dog> dogs)
+{
+    foreach (Dog dog in dogs)
+    {
+        Console.WriteLine($"{dog.Name} | {dog.Color} | {dog.Age}");
+    }
+}
 
 List<Dog> dogs = new List<Dog>
 {
     new Dog { Name = "Sparky", Color = "White", Age = 5},
-    new Dog { Name = "Butch", Color = "Brown", Age = 3 },
-    new Dog { Name = "Ada", Color = "White", Age = 4},
-    new Dog { Name = "Lucy", Color = "Black", Age = 6},
-    new Dog { Name = "Blacky", Color = "Black-White", Age = 1},
-
+    new Dog { Name = "Butch", Color = "Black", Age = 1},
+    new Dog { Name = "Lucy", Color = "White-Brown", Age = 6},
+    new Dog { Name = "Zoe", Color = "Grey", Age = 2},
+    new Dog { Name = "Blacky", Color = "Black", Age = 1},
 };
+
+List<Dog> whiteDogs = dogs.Where(dog => dog.Color == "White").ToList();
+Console.WriteLine("print white Dogs");
+PrintDogs(whiteDogs);
+
+List<Dog> namesLongerThanThree = dogs.Where(dog => dog.Name.Length > 3).ToList();
+Console.WriteLine("print dogs with names longer than 3");
+PrintDogs(namesLongerThanThree);
+
+List<Dog> nameStartsWithLetter = dogs.Where(dog => dog.Name.StartsWith("B")).ToList();
+Console.WriteLine("print dogs with names starting with letter B");
+PrintDogs(nameStartsWithLetter);
+
+Dog Age1WithB = dogs.Where(dog => dog.Age == 1)
+                    .Where(dog => dog.Color == "Black")
+                    .FirstOrDefault();
+Console.WriteLine("print dog with age 1 and color black");
+Console.WriteLine($"{Age1WithB.Name} | {Age1WithB.Color} | {Age1WithB.Age}");
+
+int sumOfAges = dogs.Sum(dog => dog.Age);
+Console.WriteLine($"The sum of ages of all dogs is: {sumOfAges}");
+
+int maxAge = dogs.Max(dog => dog.Age);
+Console.WriteLine($"The max age of all dogs is: {maxAge}");
+
+List<string> dogNamesOfSameAge = dogs
+    .GroupBy(dog => dog.Age)
+    .Where(group => group.Count() > 1)
+    .SelectMany(group => group.Select(dog => dog.Name))
+    .ToList();
+Console.WriteLine("print dog names of same age");
+foreach (string name in dogNamesOfSameAge)
+{
+    Console.WriteLine(name);
+}
+
 
 
 #endregion
