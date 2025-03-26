@@ -13,7 +13,7 @@ string namephone = Console.ReadLine();
 if(phonebook.ContainsKey(namephone))
 {
     Console.WriteLine($"{namephone} has mob.no.: 0{phonebook[namephone]}");
-    return;
+    //return;
 }
 else
 {
