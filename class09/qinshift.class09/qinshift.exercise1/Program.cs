@@ -39,14 +39,92 @@ cinema2.Movies = MovieSet2;
 
 try
 {
-Console.WriteLine(" Choose a cinema:");
-Console.WriteLine($"1. {cinema1.Name} \n2. {cinema2.Name}");
-	int cinemaInput = int.Parse(Console.ReadLine());
+    Console.WriteLine(" Choose a cinema:");
+    Console.WriteLine($"1. {cinema1.Name} \n2. {cinema2.Name}");
 
+    int cinemaInput = int.Parse(Console.ReadLine());
+    Cinema currentCinema = new Cinema();
+    if (cinemaInput == 1)
+    {
+        currentCinema = cinema1;
+    }
+    else if (cinemaInput == 2)
+    {
+        currentCinema = cinema2;
+    }
+    else
+    {
+        throw new Exception("Invalid input");
+    }
+    Console.WriteLine("LIst of movies in the cinema:");
+    Console.WriteLine("1.Show all movies \n2.Show by genre");
+    int movieInput = int.Parse(Console.ReadLine());
+    if (movieInput == 1)
+    {
+        Console.WriteLine("Chose a movie to watch: (write the name from the list)");
+        foreach (var movie in currentCinema.Movies)
+        {
+            Console.WriteLine($"{movie.Title} - {movie.Genre}");
+        }
+        string movieNameInput = Console.ReadLine();
+        Movie movieToWatch = currentCinema.Movies.Where(x => x.Title.ToLower().Trim() == movieNameInput.ToLower().Trim())
+                                            .FirstOrDefault();
+        currentCinema.MoviePlaying(movieToWatch);
+    }
+    else if (movieInput == 2)
+    {
+        Console.WriteLine("Choose a genre:");
+        Console.WriteLine($"1. {Genre.Comedy} \n2. {Genre.Horror} \n3. {Genre.Action} \n4. {Genre.Drama} \n5. {Genre.SciFi}");
+        int genreInput = int.Parse(Console.ReadLine());
+        Genre currentGenre = new Genre();
+        if (genreInput == 1)
+        {
+            currentGenre = Genre.Comedy;
+        }
+        else if (genreInput == 2)
+        {
+            currentGenre = Genre.Horror;
+        }
+        else if (genreInput == 3)
+        {
+            currentGenre = Genre.Action;
+        }
+        else if (genreInput == 4)
+        {
+            currentGenre = Genre.Drama;
+        }
+        else if (genreInput == 5)
+        {
+            currentGenre = Genre.SciFi;
+        }
+        else
+        {
+            throw new Exception("Invalid input");
+        }
+        Console.WriteLine("Choose movie to watch: ( Write the name ) ");
+        foreach (var movie in currentCinema.Movies)
+        {
+            if (movie.Genre == currentGenre)
+            {
+                Console.WriteLine($"{movie.Title}");
+            }
+        }
+        string movieByGenreInput = Console.ReadLine();
+
+        Movie movieToWatchByGenre = currentCinema.Movies
+                                          .Where(x => x.Title.ToLower().Trim() == movieByGenreInput.ToLower().Trim())
+                                          .FirstOrDefault();
+
+        currentCinema.MoviePlaying(movieToWatchByGenre);
+    }
+    else
+    {
+        throw new Exception("Invalid input");
+    }
 }
-catch (Exception)
+catch (Exception ex)
 {
 
-	throw;
+    Console.WriteLine("Somenthing is wrong! Try again");
 }
 Console.ReadLine();
