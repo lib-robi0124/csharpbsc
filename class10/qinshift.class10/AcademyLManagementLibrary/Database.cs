@@ -19,21 +19,21 @@ namespace AcademyLManagementDomain
 
             Admins = new List<Admin>()
             {
-                new Admin("bobsky123", "bobsky123", "Bob", "Bobsky", 28),
-                new Admin("doe123", "doe123", "John", "Doe", 23),
-                new Admin("mmouse123", "mmouse123", "Mickey", "Mouse", 32),
-                new Admin("pink123", "pink123", "Pink", "Panther", 31),
+                new Admin("Bob", "Bobsky", "bobsky123", "bobsky123",  28),
+                new Admin("John", "Doe", "doe123", "doe123", 23),
+                new Admin( "Mickey", "Mouse", "mmouse123", "mmouse123", 32),
+                new Admin("Pink", "Panther", "pink123", "pink123",  31),
             };
 
             Trainers = new List<Trainer>()
             {
-                new Trainer("ile123", "ile123", "Ilija", "Mitev", 20),
-                new Trainer("danilo123", "danilo123", "Danilo", "Borozan", 21),
+                new Trainer("Ilija", "Mitev", "ile123", "ile123", 20),
+                new Trainer("Danilo", "Borozan", "danilo123", "danilo123", 21),
             };
 
             Students = new List<Student>()
             {
-                new Student("jane123", "jane123", "Jane", "Doe", 20)
+                new Student("Jane", "Doe", "jane123", "jane123", 20)
                 {
                     CurrentSubject = subjects[4],
                     SubjectGrade = new Dictionary<string, int>()

@@ -12,6 +12,5 @@ namespace AcademyLManagementDomain.Models
         }
         public Admin(string username, string password) : base(username, password) { Role = Role.Admin; }
 
-
     }
 }

@@ -43,17 +43,22 @@ namespace AcademyLManagementDomain
             }
 
         }
-        public List<string> GetUsernames(Role role, Admin loggedAdmin)
+        public List<string> GetUsernames(Role role, User loggedUser)
         {
             switch (role)
             {
                 case Role.Admin:
+                    Admin loggedAdmin = (Admin)loggedUser;
                     return _database.Admins.Where(x => x.Username != loggedAdmin.Username)
                         .Select(x => x.Username).ToList();
                 case Role.Trainer:
-                    return _database.Trainers.Select(x => x.Username).ToList();
+                    Trainer loggedTrainer = (Trainer)loggedUser;
+                    return _database.Trainers.Where(x => x.Username != loggedTrainer.Username)
+                        .Select(x => x.Username).ToList();
                 case Role.Student:
-                    return _database.Students.Select(x => x.Username).ToList();
+                    Student loggedStudent = (Student)loggedUser;
+                    return _database.Students.Where(x => x.Username != loggedStudent.Username)
+                        .Select(x => x.Username).ToList();
                 default:
                     throw new Exception("error occured while retriving username from database");
             }
