@@ -13,6 +13,12 @@ namespace AcademyLManagementDomain.Models
             Role = Role.Student;
 
         }
-        public Student(string username, string password) : base(username, password) { Role = Role.Student; }
+        public Student(string username, string password) : base(username, password)
+        { 
+            Role = Role.Student;
+            CurrentSubject = "No subject";
+            SubjectGrade = new Dictionary<string, int>();   
+        }
+       
     }
 }
