@@ -10,5 +10,5 @@ namespace AcademyLManagementDomain.Models
 
         }
         public Trainer(string username, string password) : base(username, password) { Role = Role.Trainer; }
-}
+    }   
 }

@@ -2,6 +2,7 @@
 using AcademyLManagementDomain.Models;
 using AcademyManagementServices.UserServices;
 using AcademyManagementServices;
+using AcademyLManagementDomain;
 
 
 
@@ -40,16 +41,13 @@ namespace academyManagmentApp.UI
                 switch ((Role)choice)
                 {
                     case Role.Admin:
-                        Admin loggedadmin = _adminService.AdminLogin(username, password);
-                        WriteInColor($"Welcome {loggedadmin.GetFullName()}", ConsoleColor.Green);
+                        HandleAdminActions(username, password);
                         break;
                     case Role.Trainer:
-                        Trainer loggedTrainer = _trainerService.TrainerLogin(username, password);
-                        WriteInColor($"Welcome {loggedTrainer.GetFullName()}", ConsoleColor.Green);
+                       HandleTrainerActions(username, password);    
                         break;
                     case Role.Student:
-                        Student loggedStudent = _studentService.StudentLogin(username, password);
-                        WriteInColor($"Welcome {loggedStudent.GetFullName()}", ConsoleColor.Green);
+                        HandleStudentActions(username, password);
                         break;
                     default:
                         break;
@@ -60,6 +58,77 @@ namespace academyManagmentApp.UI
                 WriteInColor(ex.Message, ConsoleColor.Red);
             }
             return false;
+        }
+        private void HandleAdminActions(string username, string password)
+        {
+            Admin loggedAdmin = _adminService.AdminLogin(username, password);
+            WriteInColor($"Welcome {loggedAdmin.GetFullName()} (Admin)", ConsoleColor.Green);
+            //Console.WriteLine($"Welcome {loggedAdmin.GetFullName()} (Admin)");
+
+            while (true)
+            {
+
+                WriteInColor($"Choice what will do: \n1. Create User\n2. Remove User\n3. Logout", ConsoleColor.DarkCyan);
+                int choice = _validationService.GetValidationOption(new int[] { 1, 2, 3 });
+
+                if (choice == 3) break;
+
+                WriteInColor("Enter Username: (to edit) ", ConsoleColor.Cyan);
+                 string userToModify = _validationService.GetStringInput();
+                WriteInColor("Enter role (for UserEdit)(1-Admin, 2-Trainer, 3-Student): ", ConsoleColor.Cyan);
+                Role role = (Role)_validationService.GetValidationOption(new int[] { 1, 2, 3 });
+
+                if (choice == 1)
+                {
+                    Console.Write("Enter password: ");
+                    string newPassword = _validationService.GetStringInput();
+                    _adminService.CreateUser(userToModify, newPassword, role);
+                    Console.WriteLine("User created successfully!");
+                }
+                else if (choice == 2)
+                {
+                    _adminService.RemoveUser(userToModify, role);
+                    Console.WriteLine("User removed successfully!");
+                }
+            }
+        }
+        private void HandleTrainerActions(string username, string password)
+        {
+            Trainer loggedTrainer = _trainerService.TrainerLogin(username, password);
+            WriteInColor($"Welcome {loggedTrainer.GetFullName()} (Trainer)", ConsoleColor.Green);
+
+            while (true)
+            {
+                Console.WriteLine("1. View Students\n2. View Subjects\n3. Logout");
+                int choice = _validationService.GetValidationOption(new int[] { 1, 2, 3 });
+
+                if (choice == 3) break;
+
+                if (choice == 1)
+                {
+                    var students = _trainerService.GetTrainerUsers(Role.Student, loggedTrainer);
+                    students.ForEach(s => Console.WriteLine(s));
+                }
+                else if (choice == 2)
+                {
+                    Dictionary<string, int> subjects = _trainerService.GetSubjectsWithStudentCounts();
+                    foreach (var subject in subjects)
+                    {
+                        Console.WriteLine($"{subject.Key}: {subject.Value} students");
+                    }
+                }
+            }
+        }
+        private void HandleStudentActions(string username, string password)
+        {
+            Student loggedStudent = _studentService.StudentLogin(username, password);
+            WriteInColor($"Welcome {loggedStudent.GetFullName()} (Student)", ConsoleColor.Green);
+            Console.WriteLine($"Current Subject: {loggedStudent.CurrentSubject}");
+            Console.WriteLine("Grades:");
+            foreach (var grade in loggedStudent.SubjectGrade)
+            {
+                Console.WriteLine($"{grade.Key}: {grade.Value}");
+            }
         }
         public void WelcomeMenu()
         {

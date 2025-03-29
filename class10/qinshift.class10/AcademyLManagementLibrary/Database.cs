@@ -2,7 +2,7 @@
 
 namespace AcademyLManagementDomain
 {
-    internal class Database
+    public class Database
     {
         public List<Admin> Admins { get; set; } = new List<Admin>();
         public List<Trainer> Trainers { get; set; } = new List<Trainer>();

@@ -1,15 +1,18 @@
 ﻿using AcademyLManagementDomain;
 using AcademyLManagementDomain.Enums;
 using AcademyLManagementDomain.Models;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AcademyManagementServices.UserServices
 {
     public class TrainerService
     {
         private DataAccess _dataAccess { get; set; }
+        private Database _dataBase { get; set; }
         public TrainerService()
         {
             _dataAccess = new DataAccess();
+            _dataBase = new Database();
         }
 
         //login
@@ -25,6 +28,25 @@ namespace AcademyManagementServices.UserServices
         public List<string> GetTrainerUsers(Role role, Trainer loggedTrainer)
         {
             return _dataAccess.GetUsernames(role, loggedTrainer);
+        }
+        public Dictionary<string, int> GetSubjectsWithStudentCounts()
+        {
+            Dictionary<string, int> subjectCounts = new Dictionary<string, int>();
+
+            foreach (var student in _dataBase.Students)
+            {
+                if (!string.IsNullOrEmpty(student.CurrentSubject))
+                {
+                    if (subjectCounts.ContainsKey(student.CurrentSubject))
+                    {
+                        subjectCounts[student.CurrentSubject]++;
+                    }
+                    else
+                    {
+                        subjectCounts[student.CurrentSubject] = 1;
+                    }
+                }
+            }
         }
     }
 }
