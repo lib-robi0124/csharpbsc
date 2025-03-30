@@ -45,18 +45,24 @@ namespace AcademyLManagementDomain
         }
         public List<string> GetUsernames(Role role, User loggedUser)
         {
+            if (loggedUser == null)
+                throw new ArgumentNullException(nameof(loggedUser), "Logged user cannot be null");
+
             switch (role)
             {
-                case Role.Admin:
-                    Admin loggedAdmin = (Admin)loggedUser;
+                case Role.Admin when loggedUser is Admin loggedAdmin:
+                    //Admin loggedAdmin = (Admin)loggedUser;
+                    //if (loggedUser is Admin loggedAdmin)
                     return _database.Admins.Where(x => x.Username != loggedAdmin.Username)
                         .Select(x => x.Username).ToList();
-                case Role.Trainer:
-                    Trainer loggedTrainer = (Trainer)loggedUser;
+                case Role.Trainer when loggedUser is Trainer loggedTrainer:
+                    //Trainer loggedTrainer = (Trainer)loggedUser;
+                    //if (loggedUser is Trainer loggedTrainer)
                     return _database.Trainers.Where(x => x.Username != loggedTrainer.Username)
                         .Select(x => x.Username).ToList();
-                case Role.Student:
-                    Student loggedStudent = (Student)loggedUser;
+                case Role.Student when loggedUser is Student loggedStudent:
+                    //Student loggedStudent = (Student)loggedUser;
+                    //if (loggedUser is Student loggedStudent)
                     return _database.Students.Where(x => x.Username != loggedStudent.Username)
                         .Select(x => x.Username).ToList();
                 default:

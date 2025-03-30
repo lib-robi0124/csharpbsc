@@ -1,6 +1,11 @@
 ﻿using academyManagmentApp.UI;
 
 UserInterface userInterface = new UserInterface();
-while (!userInterface.IntApp()) ;
+bool exit = false;
+while (!exit)
+{
+    exit = userInterface.IntApp();
+}
+
 
 

@@ -44,7 +44,7 @@ namespace academyManagmentApp.UI
                         HandleAdminActions(username, password);
                         break;
                     case Role.Trainer:
-                       HandleTrainerActions(username, password);    
+                        HandleTrainerActions(username, password);
                         break;
                     case Role.Student:
                         HandleStudentActions(username, password);
@@ -52,19 +52,18 @@ namespace academyManagmentApp.UI
                     default:
                         break;
                 }
+                return true;
             }
             catch (Exception ex)
             {
                 WriteInColor(ex.Message, ConsoleColor.Red);
+                return false;
             }
-            return false;
         }
         private void HandleAdminActions(string username, string password)
         {
             Admin loggedAdmin = _adminService.AdminLogin(username, password);
             WriteInColor($"Welcome {loggedAdmin.GetFullName()} (Admin)", ConsoleColor.Green);
-            //Console.WriteLine($"Welcome {loggedAdmin.GetFullName()} (Admin)");
-
             while (true)
             {
 
@@ -111,7 +110,7 @@ namespace academyManagmentApp.UI
                 }
                 else if (choice == 2)
                 {
-                    Dictionary<string, int> subjects = _trainerService.GetSubjectsWithStudentCounts();
+                    Dictionary<string, int> subjects = _trainerService.SubjectsWithStudentCounts;
                     foreach (var subject in subjects)
                     {
                         Console.WriteLine($"{subject.Key}: {subject.Value} students");

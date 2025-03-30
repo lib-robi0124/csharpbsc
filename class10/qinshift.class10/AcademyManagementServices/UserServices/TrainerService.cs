@@ -29,23 +29,28 @@ namespace AcademyManagementServices.UserServices
         {
             return _dataAccess.GetUsernames(role, loggedTrainer);
         }
-        public Dictionary<string, int> GetSubjectsWithStudentCounts()
+        public Dictionary<string, int> SubjectsWithStudentCounts
         {
-            Dictionary<string, int> subjectCounts = new Dictionary<string, int>();
-
-            foreach (var student in _dataBase.Students)
+            get
             {
-                if (!string.IsNullOrEmpty(student.CurrentSubject))
+                Dictionary<string, int> subjectCounts = new Dictionary<string, int>();
+
+                foreach (var student in _dataBase.Students)
                 {
-                    if (subjectCounts.ContainsKey(student.CurrentSubject))
+                    if (!string.IsNullOrEmpty(student.CurrentSubject))
                     {
-                        subjectCounts[student.CurrentSubject]++;
-                    }
-                    else
-                    {
-                        subjectCounts[student.CurrentSubject] = 1;
+                        if (subjectCounts.ContainsKey(student.CurrentSubject))
+                        {
+                            subjectCounts[student.CurrentSubject]++;
+                        }
+                        else
+                        {
+                            subjectCounts[student.CurrentSubject] = 1;
+                        }
                     }
                 }
+
+                return subjectCounts;
             }
         }
     }
