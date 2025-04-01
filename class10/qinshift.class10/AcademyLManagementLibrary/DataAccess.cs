@@ -60,11 +60,10 @@ namespace AcademyLManagementDomain
                     //if (loggedUser is Trainer loggedTrainer)
                     return _database.Trainers.Where(x => x.Username != loggedTrainer.Username)
                         .Select(x => x.Username).ToList();
-                case Role.Student when loggedUser is Student loggedStudent:
+                case Role.Student:
                     //Student loggedStudent = (Student)loggedUser;
                     //if (loggedUser is Student loggedStudent)
-                    return _database.Students.Where(x => x.Username != loggedStudent.Username)
-                        .Select(x => x.Username).ToList();
+                    return _database.Students.Select(x => x.Username).ToList();
                 default:
                     throw new Exception("error occured while retriving username from database");
             }
